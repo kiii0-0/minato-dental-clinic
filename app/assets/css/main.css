@@ -143,11 +143,7 @@ p {
 }
 .header-booking {
   font-size: 11px;
-  padding: 15px 20px;
-  gap: 12px;
-}
-.calendar-icon {
-  font-size: 20px;
+  padding: 11px 18px;
 }
 .menu-toggle,
 .mobile-nav {
@@ -406,17 +402,6 @@ h1 > span:after {
   letter-spacing: 0.07em;
   line-height: 1.7;
 }
-.heading-line {
-  display: block;
-  width: 28px;
-  height: 3px;
-  background: #75c9c8;
-  margin-top: 22px;
-  border-radius: 3px;
-}
-.text-center .heading-line {
-  margin-inline: auto;
-}
 .about-copy {
   padding-top: 22px;
 }
@@ -673,46 +658,8 @@ h1 > span:after {
   font-size: 12px;
   margin: 12px 0 25px;
 }
-.access-art {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #e6e2f0;
-  border-radius: 50% 50% 8px 8px;
-  height: 320px;
-  max-width: 350px;
-  margin-left: auto;
-  width: 100%;
-}
-.access-art > svg {
-  width: 65px;
-  color: #9183ae;
-  margin-bottom: 25px;
-}
-.access-art > span {
-  font-size: 19px;
-  letter-spacing: 0.15em;
-  line-height: 1.9;
-  text-align: center;
-}
-.access-art i {
-  font-style: normal;
-  font-size: 80px;
-  position: absolute;
-  right: -30px;
-  bottom: 15px;
-  color: #75c9c8;
-}
 .site-footer {
   padding-block: 55px 25px;
-}
-.footer-links {
-  display: flex;
-  gap: 32px;
-  font-size: 11px;
-  margin-top: 30px;
 }
 .footer-bottom {
   border-top: 1px solid #e9e7ed;
@@ -1197,29 +1144,8 @@ h1 > span:after {
   .access-inner > div {
     width: 100%;
   }
-  .access-art {
-    height: 250px;
-    max-width: 280px;
-    margin: auto;
-  }
-  .access-art > svg {
-    width: 48px;
-    margin-bottom: 18px;
-  }
-  .access-art > span {
-    font-size: 17px;
-  }
-  .access-art i {
-    font-size: 65px;
-    right: -20px;
-  }
   .site-footer {
     padding-block: 40px 20px;
-  }
-  .footer-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
   }
   .footer-bottom {
     flex-wrap: wrap;
@@ -1330,11 +1256,6 @@ h1 > span:after {
   height: 380px;
   object-position: center;
 }
-.access-art > .clinic-logo-stacked {
-  width: 170px;
-  height: 156px;
-  margin-bottom: 18px;
-}
 @media (max-width: 1200px) {
   .clinic-logo {
     width: 235px;
@@ -1355,8 +1276,130 @@ h1 > span:after {
     aspect-ratio: 1.6;
     width: 100%;
   }
-  .access-art > .clinic-logo-stacked {
-    width: 145px;
-    height: 133px;
+}
+
+/* Compact editorial layout for FAQ and clinic updates. */
+.faq-section,
+.news-section {
+  display: block;
+  max-width: 980px;
+}
+.faq-section {
+  padding-block: 60px 24px;
+}
+.news-section {
+  padding-block: 24px 60px;
+}
+.faq-section .section-heading,
+.news-section .section-heading {
+  margin-bottom: 20px;
+}
+.faq-section .eyebrow,
+.news-section .eyebrow {
+  margin-bottom: 8px;
+}
+.news-section h2 {
+  font-size: 25px;
+}
+.faq-list summary {
+  padding-block: 18px;
+}
+.news-list summary {
+  padding-block: 20px;
+}
+.ui-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.menu-toggle .ui-icon {
+  width: 24px;
+  height: 24px;
+}
+.faq-plus,
+.news-list summary > span:last-child {
+  display: inline-flex;
+  align-items: center;
+}
+.faq-plus .ui-icon {
+  width: 20px;
+  height: 20px;
+}
+.news-list details[open] summary > span:last-child {
+  transform: rotate(45deg);
+}
+.dialog-close .ui-icon,
+.treatment-detail button .ui-icon {
+  width: 20px;
+  height: 20px;
+}
+.tiny-flower .ui-icon {
+  width: 90px;
+  height: 90px;
+}
+@media (max-width: 640px) {
+  .faq-section {
+    padding-block: 40px 18px;
   }
+  .news-section {
+    padding-block: 18px 40px;
+  }
+  .faq-list,
+  .news-list {
+    margin-top: 0;
+  }
+  .tiny-flower .ui-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.access-map {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  background: white;
+  border: 1px solid #e7e4ed;
+}
+.map-directions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+.map-directions:hover {
+  background: #f6f5f9;
+}
+@media (max-width: 640px) {
+  .access-map {
+    border-radius: 18px;
+  }
+}
+
+.access-map .map-directions {
+  border-top: 1px solid #e7e4ed;
+}
+
+.access-map iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+@media (max-width: 640px) {
+  .access-map iframe {
+    height: 300px;
+  }
+}
+
+.site-footer {
+  padding-block: 20px;
+}
+.footer-bottom {
+  margin-top: 0;
 }

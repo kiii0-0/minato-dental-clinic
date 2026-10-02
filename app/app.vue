@@ -26,7 +26,7 @@ const closeMenu = () => {
         }}</a>
       </nav>
       <button class="booking-button header-booking" @click="bookingOpen = true">
-        <span class="calendar-icon">▦</span> ご予約・お問い合わせ <span>↗</span>
+        お問い合わせ
       </button>
       <button
         class="menu-toggle"
@@ -35,7 +35,7 @@ const closeMenu = () => {
         :aria-label="menuOpen ? 'メニューを閉じる' : 'メニューを開く'"
         @click="menuOpen = !menuOpen"
       >
-        <span>{{ menuOpen ? "✕" : "☰" }}</span>
+        <UiIcon :name="menuOpen ? 'close' : 'menu'" />
       </button>
       <nav
         v-if="menuOpen"
@@ -48,7 +48,7 @@ const closeMenu = () => {
           :key="item.href"
           :href="item.href"
           @click="closeMenu"
-          >{{ item.label }} <span>↗</span></a
+          >{{ item.label }} <span><UiIcon /></span></a
         ><button
           class="booking-button"
           @click="
@@ -56,7 +56,7 @@ const closeMenu = () => {
             bookingOpen = true;
           "
         >
-          ご予約・お問い合わせ ↗
+          お問い合わせ
         </button>
       </nav>
     </header>
@@ -70,8 +70,8 @@ const closeMenu = () => {
             小さな歯も、これからの歯も。<br />お子さまの成長に寄り添う、<br />家族みんなの歯医者さん。
           </p>
           <a href="#about" class="round-link"
-            >私たちが大切にしていること <span>↗</span></a
-          >
+            >私たちが大切にしていること <span><UiIcon /></span
+          ></a>
           <div class="hero-flower" aria-hidden="true">
             <span /><span /><span /><span /><span /><span /><i />
           </div>
@@ -95,8 +95,10 @@ const closeMenu = () => {
           ><a href="#news" class="hero-news"
             ><span class="news-label">お知らせ</span
             ><span class="news-preview">ホームページのご案内</span
-            ><span>↗</span></a
-          ><a href="#about" class="scroll-cue">SCROLL <span>↓</span></a>
+            ><span><UiIcon /></span></a
+          ><a href="#about" class="scroll-cue"
+            >SCROLL <span><UiIcon name="arrow-down" /></span
+          ></a>
         </div>
       </section>
 
@@ -109,7 +111,9 @@ const closeMenu = () => {
             height="1067"
             loading="lazy"
           /><span class="photo-note">毎日の小さな習慣が、未来の笑顔に。</span
-          ><span class="tiny-flower" aria-hidden="true">✳</span>
+          ><span class="tiny-flower" aria-hidden="true"
+            ><UiIcon name="flower"
+          /></span>
         </div>
         <div class="about-copy">
           <SectionHeading
@@ -129,8 +133,8 @@ const closeMenu = () => {
             院長 <strong>佐藤 美咲</strong><span>Misaki Sato</span>
           </p>
           <a href="#first-visit" class="text-link"
-            >はじめての方へ <span>↗</span></a
-          >
+            >はじめての方へ <span><UiIcon /></span
+          ></a>
         </div>
       </section>
 
@@ -156,7 +160,7 @@ const closeMenu = () => {
               ><ClinicIcon :name="treatment.icon" />
               <h3>{{ treatment.title }}</h3>
               <p>{{ treatment.subtitle }}</p>
-              <span class="card-arrow" aria-label="詳しく見る">↗</span>
+              <span class="card-arrow" aria-label="詳しく見る"><UiIcon /></span>
             </button>
           </div>
           <div
@@ -173,7 +177,7 @@ const closeMenu = () => {
               aria-label="診療の説明を閉じる"
               @click="selectedTreatment = null"
             >
-              ✕
+              <UiIcon name="close" />
             </button>
           </div>
         </div>
@@ -221,7 +225,7 @@ const closeMenu = () => {
               「歯医者さんが苦手」「子どもの歯が気になる」<br />小さな不安も、どうぞお聞かせください。<br />あなたとご家族のペースで、はじめましょう。
             </p>
             <button class="booking-button" @click="bookingOpen = true">
-              ご予約・お問い合わせ <span>↗</span>
+              ご予約・お問い合わせ <span><UiIcon /></span>
             </button>
           </div>
           <img
@@ -244,7 +248,7 @@ const closeMenu = () => {
           <details v-for="faq in faqs" :key="faq.question">
             <summary>
               <span class="question-mark">Q.</span>{{ faq.question
-              }}<span class="faq-plus">＋</span>
+              }}<span class="faq-plus"><UiIcon name="plus" /></span>
             </summary>
             <p>{{ faq.answer }}</p>
           </details>
@@ -257,7 +261,8 @@ const closeMenu = () => {
           <details>
             <summary>
               <span class="news-tag">ご案内</span
-              ><span>ホームページのご案内</span><span class="ml-auto">＋</span>
+              ><span>ホームページのご案内</span
+              ><span class="ml-auto"><UiIcon name="plus" /></span>
             </summary>
             <p>
               みなと歯科クリニックのホームページへようこそ。医院からのお知らせは、こちらでご案内します。
@@ -282,8 +287,8 @@ const closeMenu = () => {
               href="https://www.google.com/maps/search/?api=1&amp;query=東京都港区高輪2-14-8"
               target="_blank"
               rel="noopener noreferrer"
-              >Google マップで見る ↗</a
-            >
+              >Google マップで見る <UiIcon
+            /></a>
             <dl class="clinic-details">
               <div>
                 <dt>診療時間</dt>
@@ -303,31 +308,36 @@ const closeMenu = () => {
               </div>
             </dl>
             <button class="booking-button" @click="bookingOpen = true">
-              ご予約について <span>↗</span>
+              ご予約について <span><UiIcon /></span>
             </button>
           </div>
-          <div class="access-art" aria-hidden="true">
-            <ClinicLogo stacked /><span
-              >お会いできる日を、<br />楽しみにしています。</span
-            ><i>✳</i>
+          <div class="access-map">
+            <iframe
+              title="みなと歯科クリニックへのアクセス：東京都港区高輪2-14-8"
+              src="https://maps.google.com/maps?q=東京都港区高輪2-14-8&amp;z=16&amp;output=embed"
+              width="560"
+              height="400"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            />
+            <a
+              class="map-directions"
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=東京都港区高輪2-14-8"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google マップでルートを確認 <UiIcon
+            /></a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer section-shell">
-      <a href="#" class="brand" aria-label="みなと歯科クリニック ホーム"
-        ><ClinicLogo
-      /></a>
-      <div class="footer-links">
-        <a v-for="item in navigation" :key="item.href" :href="item.href">{{
-          item.label
-        }}</a>
-      </div>
       <div class="footer-bottom">
         <span>お子さまと、ご家族の笑顔のために。</span
         ><small>© {{ new Date().getFullYear() }} みなと歯科クリニック</small
-        ><a href="#" aria-label="ページの先頭へ">↑</a>
+        ><a href="#" aria-label="ページの先頭へ"><UiIcon name="arrow-up" /></a>
       </div>
     </footer>
     <dialog
@@ -343,7 +353,7 @@ const closeMenu = () => {
           aria-label="閉じる"
           @click="bookingOpen = false"
         >
-          ✕</button
+          <UiIcon name="close" /></button
         ><ClinicIcon />
         <p class="eyebrow">みなと歯科クリニック</p>
         <h2 id="booking-title">ご予約・お問い合わせ</h2>
@@ -355,8 +365,8 @@ const closeMenu = () => {
           9:00–12:30 / 14:00–18:00<br />日曜・祝日休診
         </p>
         <a class="booking-button" href="tel:0364503281"
-          >電話で予約する <span>↗</span></a
-        >
+          >電話で予約する <span><UiIcon /></span
+        ></a>
       </div>
     </dialog>
   </div>
