@@ -247,8 +247,9 @@ const closeMenu = () => {
         <div class="faq-list">
           <details v-for="faq in faqs" :key="faq.question">
             <summary>
-              <span class="question-mark">Q.</span>{{ faq.question
-              }}<span class="faq-plus"><UiIcon name="plus" /></span>
+              <span class="question-mark">Q.</span>
+              <span class="faq-question">{{ faq.question }}</span>
+              <span class="faq-plus"><UiIcon name="plus" /></span>
             </summary>
             <p>{{ faq.answer }}</p>
           </details>
